@@ -1,0 +1,325 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.main{
+    width: 100%;
+}
+section{
+    width: 100%;
+    height: 100vh;
+}
+.home_section{
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+}
+/* .home_section.active{
+    display: block;
+} */
+.container{
+    width: 100%;
+    height: auto;
+    /* display: none; */
+}
+.card{
+    width: 100%;
+    height: 100vh;
+    background-image: url(./images/1.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+.card img{
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    object-fit: cover;
+    animation:img 1s linear infinite;
+}
+@keyframes img {
+    0%,100%{
+        transform: scale(.9);
+    }
+    50%{
+        transform: scale(1);
+    }
+}
+.card .touch{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    animation:animated 1s linear infinite;
+}
+ @keyframes animated {
+     0%{
+         transform: scale(2);
+     }
+     100%{
+         transform: scale(1);
+     }
+ }
+
+
+
+ @media screen and (max-width:768px) {
+    .card img{
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+    }
+    .card .touch{
+        width: 30px;
+        height: 30px;
+    }
+    .card{
+        background-image: url(./images/3.jpg);
+    }
+    .popup_card{
+        background-image: url(./images/4.jpg) !important;
+    }
+    .circle1{
+        width: 100px !important;
+        height: 100px !important;
+        background: rgba(255,255,253,.2) !important;
+        z-index: 2;
+        display: block !important;
+    }
+    .circle2{
+        width: 120px !important;
+        height: 120px !important;
+        background: rgba(255,255,253,.2) !important;
+        display: block !important;
+    }
+    .num{
+        color: black !important;
+        font-size: 2rem !important;
+        text-shadow: 0 0 55px rgba(255,255,253,.5) !important;
+        font-weight: bold;
+    }
+ 
+    .title{
+        color: white;
+        font-size: 1rem !important;
+        /* text-shadow: 0 0 2px; */
+    }
+    .time_wrapper{
+        width: 300px !important;
+        height: 150px !important;
+        background-color: rgb(255,255,266,0.1) !important;
+    }
+    .close::before{
+        color: red !important;
+        transition: all .2s ease;
+        font-size: 16px !important;
+    }
+    .close:hover::before{
+
+        letter-spacing: 1px;
+    }
+    .eid{
+        width: 200px;
+        height: 50px;
+        backdrop-filter: blur(5px) !important;
+        position: absolute;
+        text-align: center;
+        top: -50% !important;
+        left: 20% !important;
+        font-size: 1.2rem !important;
+        background-color: rgb(255,255,266,0.8) !important;
+        color: black !important;
+        padding: 15px 20px !important;
+        border-radius: 50% 50% 12% 28% / 39% 29% 71% 95% !important;
+        box-shadow: 0 0 20px rgb(0,0,0,0.3) ;
+    }
+ }
+
+
+
+ .popup_section{
+     position: fixed;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     visibility: hidden;
+     transform: scale(0);
+     transition: all .3s ease !important;
+
+ }
+ .popup_section.active{
+     visibility: visible;
+     transform: scale(1);
+     transition: all .3s ease !important;
+     
+ }
+ .popup_card{
+     background-image: url(./images/25177.jpg);
+     width: 100%;
+     height: 100vh;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     object-fit: cover;
+ } 
+ .circle1{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(0,0,0,0.4);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    backdrop-filter: blur(5px);
+    border-radius: 34% 66% 71% 29% / 34% 43% 57% 66% ;
+    animation: circle1 5s linear infinite;
+    display: none;
+ }
+
+ .circle2{
+    width: 300px;
+    height: 300px;
+    background-color: rgb(0,0,0,0.3);
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    backdrop-filter: blur(5px);
+    border-radius:50% 50% 59% 41% / 35% 25% 75% 65% ;
+    animation: circle2 5s linear infinite;
+    display: none;
+ }
+ @keyframes circle1 {
+     0%{
+         transform:  translateY(0);
+         
+     }
+     50%{
+        transform:  translateY(400px) rotate(360deg);
+     }
+     
+ }
+
+ @keyframes circle2 {
+    0%{
+        transform:  translateY(0);
+    }
+    50%{
+       transform:  translateY(-400px) rotate(360deg);
+    }
+    
+}
+
+.time_wrapper{
+    width: 700px;
+    height: 300px;
+    background-color: rgb(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
+    backdrop-filter: blur(5px);
+    animation:time 2s linear infinite;
+    place-items: center;
+    position: relative;
+    
+}
+
+.progressbar{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background-color: red;
+    border-radius: 5px;
+    transition: all 1s ease-in;
+    pointer-events: none;
+}
+.wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+
+
+@keyframes time {
+    0%,100%{
+        transform: translateY(0) rotate(0);
+    }
+    35%{
+        transform: scale(1) rotate(3deg) ;
+        border-radius: 15px;
+    }
+   70%{
+       transform: rotate(-3deg);
+   }
+}
+
+.title{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: white;
+}
+
+.num{
+    font-size: 5rem;
+    text-align: center;
+    font-size: bold;
+    text-shadow: 0 0 20px black;
+    color: white;
+}
+
+.close{
+    position: absolute;
+    background-color: rgba(255,255,253,0.3);
+    top: -10px;
+    right: -10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    backdrop-filter: (10px);
+    border-radius: 3px;
+    border-radius:68% 32% 59% 41% / 19% 20% 80% 81% ;
+    border: 1px solid rgb(255,255,266,0.4);
+}
+.close::before{
+    content: '<close/>';
+    font-size: 20px;
+    font-weight: bold;
+    color: crimson;
+}
+
+.eid{
+    position: absolute;
+    text-align: center;
+    top: -40%;
+    left: 33%;
+    font-size: 2.5rem;
+    color: white ;
+    background-color:rgba(0,0,0,0.3) !important;
+    padding: 20px 30px;
+    border-radius: 97% 83% 6% 44% / 29% 29% 71% 71% ;
+    backdrop-filter: blur(5px);
+    font-size: bold;
+    animation: eid 2s linear infinite;
+}
+
+@keyframes eid {
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        transform: rotate(5deg);
+    }
+}
+
+
